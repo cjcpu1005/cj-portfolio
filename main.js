@@ -1,44 +1,674 @@
-// CUSTOMIZE YOUR SITE HERE: update the name, email, social links, and project details.
-const profile = {
-  name: 'YOUR NAME',
-  role: 'Videographer & Visual Designer',
-  email: 'hello@example.com',
-  instagram: 'https://instagram.com/',
-  behance: 'https://behance.net/',
-  intro: 'I make visuals that feel like something.',
-  about: 'I’m a visual storyteller working across film, motion, and graphic design. I believe the best work makes people pause, feel, and remember.'
+
+/* ==========================================
+   MOTIONS BY CJ
+   Creative Portfolio — Main JavaScript
+   ========================================== */
+
+// PERSONAL SETTINGS
+// Replace these with your actual contact links.
+
+const SETTINGS = {
+  brand: "MOTIONS by CJ",
+  tagline: "Stories in motion.",
+  email: "",
+  instagram: "",
+  facebook: "",
+  location: "Philippines"
 };
-// For video projects, add a video URL (MP4) or YouTube embed URL in the `video` field.
-// Replace image URLs with your own hosted project thumbnails.
+
+// PROJECT COLLECTION
+// These are temporary sample projects.
+// Replace titles, images, descriptions, and links
+// when your actual projects are ready.
+
 const projects = [
-  {id:'01', title:'AFTER HOURS',category:'Film / Visual Storytelling',type:'video',year:'2026',image:'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1400&q=85',description:'A cinematic exploration of the moments that happen after the world slows down.',video:''},
-  {id:'02', title:'FORM & FEELING',category:'Graphic Design / Editorial',type:'design',year:'2026',image:'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=1400&q=85',description:'A visual study of expressive typography, composition, and form.'},
-  {id:'03', title:'IN MOTION',category:'Film / Documentary',type:'video',year:'2025',image:'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1400&q=85',description:'Finding movement, meaning, and texture in everyday life.',video:''},
-  {id:'04', title:'THE NEW ISSUE',category:'Graphic Design / Publication',type:'design',year:'2025',image:'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1400&q=85',description:'An editorial concept balancing bold layouts and considered visual hierarchy.'},
-  {id:'05', title:'STILL / MOVING',category:'Film / Creative Direction',type:'video',year:'2025',image:'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1400&q=85',description:'A visual experiment in rhythm, light, and storytelling.',video:''},
-  {id:'06', title:'COLOR STUDIES',category:'Graphic Design / Identity',type:'design',year:'2025',image:'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1400&q=85',description:'A playful identity exploration driven by color and geometric composition.'}
+  {
+    id: 1,
+    title: "After Hours",
+    category: "videography",
+    type: "Event Film",
+    year: "2026",
+    description:
+      "An energetic celebration of spontaneous moments, " +
+      "shared memories, and the atmosphere of a night out.",
+    image:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&auto=format&fit=crop",
+    link: ""
+  },
+  {
+    id: 2,
+    title: "Somewhere, Slowly",
+    category: "videography",
+    type: "Travel Vlog",
+    year: "2026",
+    description:
+      "A visual travel diary capturing unfamiliar places, " +
+      "quiet discoveries, and the beauty of exploring.",
+    image:
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&auto=format&fit=crop",
+    link: ""
+  },
+  {
+    id: 3,
+    title: "Little Moments",
+    category: "videography",
+    type: "Lifestyle Film",
+    year: "2026",
+    description:
+      "An intimate collection of everyday scenes, " +
+      "ordinary routines, and memories worth keeping.",
+    image:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&auto=format&fit=crop",
+    link: ""
+  },
+  {
+    id: 4,
+    title: "Visual Impact",
+    category: "graphics",
+    type: "Promotional Design",
+    year: "2026",
+    description:
+      "A bold visual direction for promotional content, " +
+      "combining typography, composition, and storytelling.",
+    image:
+      "https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=1200&auto=format&fit=crop",
+    link: ""
+  },
+  {
+    id: 5,
+    title: "The Social Edit",
+    category: "graphics",
+    type: "Social Media Graphics",
+    year: "2026",
+    description:
+      "A collection of digital graphics designed to " +
+      "communicate ideas and engage online audiences.",
+    image:
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&auto=format&fit=crop",
+    link: ""
+  },
+  {
+    id: 6,
+    title: "Creative Direction",
+    category: "graphics",
+    type: "Visual Design",
+    year: "2026",
+    description:
+      "Exploring expressive layouts, visual identity, " +
+      "and graphic compositions for digital platforms.",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&auto=format&fit=crop",
+    link: ""
+  }
 ];
-const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const app = document.querySelector('#app');
-app.innerHTML = `
-<header class="site-header"><a class="brand" href="#top">FRAME<span class="brand-dot">●</span></a><nav aria-label="Main navigation"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT ↗</a></nav></header>
-<main id="top">
-<section class="hero"><div class="hero-top"><span>INDEPENDENT CREATIVE PORTFOLIO</span><span>AVAILABLE FOR COLLABORATIONS <i class="status-dot"></i></span></div><div class="hero-content"><p class="eyebrow">FILM. DESIGN. EVERYTHING IN BETWEEN.</p><h1>MADE TO<br><em>BE FELT.</em></h1><div class="hero-bottom"><p>${escapeHTML(profile.intro)}<br><span>${escapeHTML(profile.role)}</span></p><a href="#work" class="round-arrow" aria-label="View selected work">↘</a></div></div><div class="hero-image" role="img" aria-label="Cinematic abstract backdrop"></div><div class="hero-index">SCROLL TO EXPLORE <span>↓</span></div></section>
-<section class="work section" id="work"><div class="section-head"><div><p class="eyebrow">01 / PORTFOLIO</p><h2>SELECTED <em>WORK.</em></h2></div><p class="section-aside">A COLLECTION OF MOVING IMAGES<br>AND VISUAL IDEAS.</p></div><div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all">ALL WORK <sup>06</sup></button><button class="filter" data-filter="video">VIDEOGRAPHY</button><button class="filter" data-filter="design">GRAPHIC DESIGN</button></div><div class="projects" id="projects"></div></section>
-<section class="statement"><p class="eyebrow">THE WAY I SEE IT</p><p>GOOD VISUALS CATCH YOUR EYE.<br><em>GREAT ONES STAY WITH YOU.</em></p><span>↗ ALWAYS LOOKING FOR THE NEXT STORY</span></section>
-<section class="about section" id="about"><div class="section-head"><div><p class="eyebrow">02 / THE PERSON BEHIND THE WORK</p><h2>ABOUT <em>ME.</em></h2></div></div><div class="about-grid"><div class="about-photo"><span>YOUR PHOTO HERE ↗</span></div><div class="about-copy"><p class="big-copy">HELLO, I'M <em>${escapeHTML(profile.name)}.</em></p><p>${escapeHTML(profile.about)}</p><div class="services"><span>WHAT I DO</span><div>VIDEOGRAPHY <b>↗</b></div><div>VIDEO EDITING <b>↗</b></div><div>GRAPHIC DESIGN <b>↗</b></div><div>CREATIVE DIRECTION <b>↗</b></div></div></div></div></section>
-<section class="contact section" id="contact"><p class="eyebrow">03 / LET'S MAKE SOMETHING</p><h2>HAVE AN<br><em>IDEA?</em></h2><div class="contact-row"><p>LET'S TURN IT INTO SOMETHING WORTH REMEMBERING.</p><a class="contact-button" href="mailto:${encodeURIComponent(profile.email)}">LET'S TALK <span>↗</span></a></div></section>
-</main><footer><a class="brand" href="#top">FRAME<span class="brand-dot">●</span></a><p>© <span id="year"></span> ${escapeHTML(profile.name)}. ALL RIGHTS RESERVED.</p><div><a href="${escapeHTML(profile.instagram)}" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a><a href="${escapeHTML(profile.behance)}" target="_blank" rel="noopener noreferrer">BEHANCE ↗</a></div></footer>
-<dialog id="projectDialog" aria-label="Project details"><button class="close" aria-label="Close project">✕</button><div id="dialogContent"></div></dialog>`;
-document.querySelector('#year').textContent = new Date().getFullYear();
-const grid = document.querySelector('#projects');
-function renderProjects(filter='all') {
- const selected=projects.filter(p=>filter==='all'||p.type===filter);
- grid.innerHTML=selected.map(p=>`<button class="project-card" data-id="${p.id}" aria-label="View ${escapeHTML(p.title)}"><div class="project-image"><img loading="lazy" src="${escapeHTML(p.image)}" alt="Placeholder visual for ${escapeHTML(p.title)}"/><span class="project-open">↗</span></div><div class="project-meta"><div><h3>${escapeHTML(p.title)}</h3><p>${escapeHTML(p.category)}</p></div><span>${escapeHTML(p.year)} / ${p.id}</span></div></button>`).join('');
- grid.querySelectorAll('.project-card').forEach(el=>el.addEventListener('click',()=>openProject(projects.find(p=>p.id===el.dataset.id))));
+
+// UTILITIES
+
+const app = document.getElementById("app");
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]
+  );
 }
-renderProjects();
-document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');renderProjects(button.dataset.filter)}));
-const dialog=document.querySelector('#projectDialog');
-function openProject(p){const video = p.video && /^https:\/\//.test(p.video) ? `<a class="video-link" href="${escapeHTML(p.video)}" target="_blank" rel="noopener noreferrer">WATCH PROJECT ↗</a>` : (p.type==='video' ? '<p class="video-note">Add your video URL in main.js to link the finished film.</p>' : '');document.querySelector('#dialogContent').innerHTML=`<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)}"/><p class="eyebrow">${escapeHTML(p.category)} / ${escapeHTML(p.year)}</p><h2>${escapeHTML(p.title)}</h2><p>${escapeHTML(p.description)}</p>${video}`;dialog.showModal()}
-document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+
+function safeURL(value) {
+  if (!value) return "";
+  try {
+    const url = new URL(value);
+    return ["https:", "http:"].includes(url.protocol)
+      ? url.href
+      : "";
+  } catch {
+    return "";
+  }
+}
+
+function socialLink(url, label) {
+  const href = safeURL(url);
+  if (!href) return "";
+
+  return `
+    <a href="${escapeHTML(href)}"
+       target="_blank"
+       rel="noopener noreferrer">
+      ${escapeHTML(label)} ↗
+    </a>
+  `;
+}
+
+// PROJECT CARDS
+
+function renderProject(project) {
+  const image = safeURL(project.image);
+
+  return `
+    <article
+      class="project-card reveal"
+      data-category="${escapeHTML(project.category)}"
+      data-project-id="${project.id}"
+      role="button"
+      tabindex="0"
+      aria-label="View ${escapeHTML(project.title)}"
+    >
+      <div class="project-image">
+        <img
+          src="${escapeHTML(image)}"
+          alt="${escapeHTML(project.title)}"
+          loading="lazy"
+        />
+        <div class="project-overlay">
+          <span class="section-label">
+            ${escapeHTML(project.type)}
+          </span>
+          <span>↗</span>
+        </div>
+      </div>
+
+      <div class="project-category">
+        ${escapeHTML(project.category)}
+        / ${escapeHTML(project.year)}
+      </div>
+
+      <h3 class="project-title">
+        ${escapeHTML(project.title)}
+      </h3>
+
+      <p class="project-description">
+        ${escapeHTML(project.description)}
+      </p>
+    </article>
+  `;
+}
+
+// WEBSITE LAYOUT
+
+app.innerHTML = `
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#home" class="logo">
+        MOTIONS<span>.</span>
+        <span style="
+          color:var(--text);
+          font-size:11px;
+          letter-spacing:.1em;
+          vertical-align:middle;
+        ">BY CJ</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero" id="home">
+
+    <div
+      class="hero-bg"
+      style="
+        background-image:
+        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=2000&auto=format&fit=crop');
+      "
+    ></div>
+
+    <div class="hero-content">
+
+      <div class="hero-topline">
+        <span class="eyebrow">
+          INDEPENDENT CREATIVE PORTFOLIO
+        </span>
+
+        <span>
+          VIDEOGRAPHY / DESIGN / VISUAL STORIES
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        STORIES
+        <span>IN MOTION.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Capturing moments. Creating memories.
+      </p>
+
+      <p class="hero-description">
+        Short-form films, everyday stories,
+        and creative visuals by CJ.
+      </p>
+
+      <div class="hero-bottom">
+        <a href="#work" class="contact-button">
+          EXPLORE MY WORK ↗
+        </a>
+
+        <span class="scroll-indicator">
+          SCROLL TO EXPLORE ↓
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+
+  <section class="work-section" id="work">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">
+            01 / SELECTED WORK
+          </p>
+
+          <h2 class="section-title">
+            THE<br>ARCHIVE.
+          </h2>
+        </div>
+
+        <p class="section-description">
+          A growing collection of moments captured,
+          stories told, and visuals created.
+          From event highlights to digital graphics,
+          every project is another story.
+        </p>
+      </div>
+
+      <div
+        class="project-filters"
+        role="group"
+        aria-label="Filter projects"
+      >
+        <button class="filter-btn active"
+                data-filter="all">
+          ALL PROJECTS
+        </button>
+
+        <button class="filter-btn"
+                data-filter="videography">
+          VIDEOGRAPHY
+        </button>
+
+        <button class="filter-btn"
+                data-filter="graphics">
+          GRAPHIC DESIGN
+        </button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        ${projects.map(renderProject).join("")}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+
+  <section class="about-section" id="about">
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="reveal">
+          <p class="section-label">
+            02 / BEHIND THE LENS
+          </p>
+
+          <h2 class="about-heading">
+            THE PERSON<br>
+            BEHIND THE<br>
+            <span>MOTIONS.</span>
+          </h2>
+        </div>
+
+        <div class="reveal">
+          <div class="about-text">
+
+            <p>
+              Hey, I'm CJ — the creative behind
+              MOTIONS by CJ.
+            </p>
+
+            <p>
+              I enjoy capturing the moments that
+              make life memorable. From lively
+              celebrations and spontaneous trips
+              to quiet everyday experiences,
+              I turn real moments into short-form
+              visual stories.
+            </p>
+
+            <p>
+              My approach to videography is simple:
+              capture the atmosphere, preserve the
+              emotion, and let every moment tell
+              its own story.
+            </p>
+
+            <p>
+              Beyond filmmaking, I also explore
+              graphic design and digital content
+              creation. I create promotional
+              graphics, social media visuals,
+              and occasionally manage social
+              media pages.
+            </p>
+
+            <p>
+              MOTIONS by CJ brings these interests
+              together — storytelling through
+              movement, imagery, and design.
+            </p>
+
+          </div>
+
+          <div class="tools-section">
+            <h3 class="tools-title">
+              MY CREATIVE TOOLKIT
+            </h3>
+
+            <div class="tools-list">
+              <span class="tool-tag">
+                DJI Osmo Pocket 3
+              </span>
+              <span class="tool-tag">
+                iPhone 13
+              </span>
+              <span class="tool-tag">
+                CapCut
+              </span>
+              <span class="tool-tag">
+                DaVinci Resolve
+              </span>
+              <span class="tool-tag">
+                Canva
+              </span>
+              <span class="tool-tag">
+                Figma
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+
+  <section class="contact-section" id="contact">
+    <div class="container reveal">
+
+      <p class="section-label">
+        03 / LET'S CONNECT
+      </p>
+
+      <h2 class="contact-heading">
+        LET'S MAKE<br>
+        <span>IT MOVE.</span>
+      </h2>
+
+      <p class="contact-description">
+        Have an event to capture, a story to tell,
+        or a creative idea in mind?
+        Let's turn it into something memorable.
+      </p>
+
+      ${
+        SETTINGS.email
+          ? `<a class="contact-button"
+               href="mailto:${encodeURIComponent(SETTINGS.email)}">
+               GET IN TOUCH ↗
+             </a>`
+          : `<p class="section-description"
+                style="margin:20px auto">
+               Contact details coming soon.
+             </p>`
+      }
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <p>
+        © ${new Date().getFullYear()}
+        MOTIONS BY CJ.
+        STORIES IN MOTION.
+      </p>
+
+      <div class="footer-links">
+        ${socialLink(SETTINGS.instagram, "INSTAGRAM")}
+        ${socialLink(SETTINGS.facebook, "FACEBOOK")}
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAIL MODAL -->
+
+  <div
+    class="modal"
+    id="project-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Project details"
+    aria-hidden="true"
+  >
+    <div class="modal-content">
+      <button
+        class="modal-close"
+        id="modal-close"
+        aria-label="Close project"
+      >×</button>
+
+      <div id="modal-body"></div>
+    </div>
+  </div>
+`;
+
+// FILTER FUNCTIONALITY
+
+const filterButtons =
+  document.querySelectorAll(".filter-btn");
+
+const projectCards =
+  document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(btn => {
+      btn.classList.toggle(
+        "active",
+        btn === button
+      );
+    });
+
+    projectCards.forEach(card => {
+      card.hidden =
+        filter !== "all" &&
+        card.dataset.category !== filter;
+    });
+  });
+});
+
+// PROJECT MODAL
+
+const modal = document.getElementById("project-modal");
+const modalBody = document.getElementById("modal-body");
+const closeButton = document.getElementById("modal-close");
+
+let previousFocus = null;
+
+function openProject(projectId) {
+  const project = projects.find(
+    item => item.id === Number(projectId)
+  );
+
+  if (!project) return;
+
+  previousFocus = document.activeElement;
+
+  const image = safeURL(project.image);
+  const link = safeURL(project.link);
+
+  modalBody.innerHTML = `
+    <img
+      src="${escapeHTML(image)}"
+      alt="${escapeHTML(project.title)}"
+    />
+
+    <p class="section-label">
+      ${escapeHTML(project.type)}
+      / ${escapeHTML(project.year)}
+    </p>
+
+    <h2 class="project-title"
+        style="margin:18px 0">
+      ${escapeHTML(project.title)}
+    </h2>
+
+    <p class="project-description">
+      ${escapeHTML(project.description)}
+    </p>
+
+    ${
+      link
+        ? `<a class="contact-button"
+              href="${escapeHTML(link)}"
+              target="_blank"
+              rel="noopener noreferrer">
+             VIEW FULL PROJECT ↗
+           </a>`
+        : `<p class="project-description"
+              style="margin-top:24px">
+             Full project coming soon.
+           </p>`
+    }
+  `;
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  closeButton.focus();
+}
+
+function closeProject() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  if (previousFocus) {
+    previousFocus.focus();
+  }
+}
+
+projectCards.forEach(card => {
+  card.addEventListener("click", () => {
+    openProject(card.dataset.projectId);
+  });
+
+  card.addEventListener("keydown", event => {
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+      event.preventDefault();
+      openProject(card.dataset.projectId);
+    }
+  });
+});
+
+closeButton.addEventListener("click", closeProject);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) {
+    closeProject();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (
+    event.key === "Escape" &&
+    modal.classList.contains("open")
+  ) {
+    closeProject();
+  }
+
+  if (
+    event.key === "Tab" &&
+    modal.classList.contains("open")
+  ) {
+    const focusable = modal.querySelectorAll(
+      'button, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (
+      !event.shiftKey &&
+      document.activeElement === last
+    ) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+// SCROLL REVEAL ANIMATIONS
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+if (
+  "IntersectionObserver" in window &&
+  !window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches
+) {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: "0px 0px -30px 0px"
+    }
+  );
+
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+} else {
+  revealElements.forEach(element => {
+    element.classList.add("visible");
+  });
+}
