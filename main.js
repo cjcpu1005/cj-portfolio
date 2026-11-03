@@ -1,26 +1,26 @@
 const DRIVE = 'https://drive.google.com/file/d/';
 const videos = [
  ['sincerely, awgazi','1t9OFQdcwihuHEzoTlWXSWo5HMUv2zCA-'],
- ['awgazi pov11','1PTlrU6hjvWUmXwPpiQMrxmmaIJj9utos'],
- ['slow 1','1yRniv-OALBEhXpU73yOvi3RluBCxuPDE'],
+ ['awgazi pov','1PTlrU6hjvWUmXwPpiQMrxmmaIJj9utos'],
+ ['second','1yRniv-OALBEhXpU73yOvi3RluBCxuPDE'],
  ['awgazi baby','1jzR-SJ_kPnoYqPXfV5Vset_72ix_p-6f'],
- ['0831 seconhand','1l8Q03tovfL5Ea2cEtAuljWbdPUh0TbHe'],
- ['0728 — Postcard 1','112PoVtK5LpKhZEUe7QbXrqXIdE0_hHlT'],
- ['SANTA CRUZ — FOLLOW MY LEAD','1qM-VPiK2J0bEnXZFnoPKY8doJeTwyhuu'],
- ['ALLY BDAY','1GPG4hA3rE7p3tjWNbuvCrIckuwWFqLP9'],
- ['0616 — cant','1kd-xN1dKvjfs8Wv-UniBWjLWvvEUIZJC'],
- ['0402 — bxu u1.2','1gbBtXVQ6ac2d7FxNMw54c57Ln0KxeyOP'],
- ['03-14-26 lala2','1LFlyfqJuwGZ8yCq2dwOkWV4rqszrlwLR'],
+ ['seconhand','1l8Q03tovfL5Ea2cEtAuljWbdPUh0TbHe'],
+ ['Postcard','112PoVtK5LpKhZEUe7QbXrqXIdE0_hHlT'],
+ ['follow my lead','1qM-VPiK2J0bEnXZFnoPKY8doJeTwyhuu'],
+ ['birthday, ally','1GPG4hA3rE7p3tjWNbuvCrIckuwWFqLP9'],
+ ['cant','1kd-xN1dKvjfs8Wv-UniBWjLWvvEUIZJC'],
+ ['bxu - drvarnd','1gbBtXVQ6ac2d7FxNMw54c57Ln0KxeyOP'],
+ ['la la lost you','1LFlyfqJuwGZ8yCq2dwOkWV4rqszrlwLR'],
  ['big house','1XKW2GsQebnR5zRzhKIHtltlPhkufustX'],
  ['1129','1F7PfVs7B-SxT6yvPcXzv4wDwQV8Dd7xs'],
  ['baracada','1zZ_PpDGyC0Q7ZoKd8SEKMKDOQ4vD_egV']
 ].map(([title,id],i)=>({title,id,kind:'video',category:'Videography',number:i+1}));
 const graphics = [
- ['UMG(3)','1jEeF4juLKhbfXjNtKJkXQ_LSlYC7EGKH'],
- ['Frame 2(1)','1AYJJggNQE1VvvCZ11Njq-hGjNxHnqJYv'],
- ['main post(1)','19UZEa7ghnLqF1hR5tg83loajodyr1IIh'],
- ['IMG_6151','1rx9zeM8eCIf-jTa6X0p5si29PBscQ567'],
- ['IMG_6279','15jCJtILc2-jV43UBdgg7QXFejM73B6J9']
+ ['UMG','1jEeF4juLKhbfXjNtKJkXQ_LSlYC7EGKH'],
+ ['MedTech','1AYJJggNQE1VvvCZ11Njq-hGjNxHnqJYv'],
+ ['Confessions','19UZEa7ghnLqF1hR5tg83loajodyr1IIh'],
+ ['Samal','1rx9zeM8eCIf-jTa6X0p5si29PBscQ567'],
+ ['Samal','15jCJtILc2-jV43UBdgg7QXFejM73B6J9']
 ].map(([title,id],i)=>({title,id,kind:'image',category:'Graphic Design',number:i+1}));
 const projects=[...videos,...graphics];
 const $=s=>document.querySelector(s);
